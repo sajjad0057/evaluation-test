@@ -48,6 +48,29 @@ builder.Services.AddScoped<IRepository, Repository>();
 builder.Services.AddScoped<IUsersService, UsersService>();
 
 
+#region Configure_Cors
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(
+        "AnyOrigin",
+        builder =>
+        {
+            builder
+                .SetIsOriginAllowed(origin =>
+                {
+                    return true;
+                })
+                .AllowAnyMethod()
+                .AllowCredentials()
+                .AllowAnyHeader();
+        }
+    );
+});
+
+#endregion
+
+
 builder.Services.AddControllers();
 
 // Configuration for invalid model state response customization
@@ -81,6 +104,8 @@ try
         app.UseSwaggerUI();
     }
 
+    //// enabling cors with policy
+    app.UseCors("AnyOrigin");
 
     app.UseHttpsRedirection();
 
