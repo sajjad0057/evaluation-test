@@ -1,10 +1,12 @@
 using System.Reflection;
 using ManageUser.Api.Mapping;
+using ManageUser.Api.Utils;
 using ManageUser.Infrastructure.DbContexts;
 using ManageUser.Infrastructure.Repositories;
 using ManageUser.Infrastructure.Services;
 using Mapster;
 using MapsterMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 using Serilog.Events;
@@ -47,6 +49,14 @@ builder.Services.AddScoped<IUsersService, UsersService>();
 
 
 builder.Services.AddControllers();
+
+// Configuration for invalid model state response customization
+
+builder.Services.Configure<ApiBehaviorOptions>(options =>
+{
+    options.InvalidModelStateResponseFactory = ApiResults<object>.InvalidModelStateResponse;
+});
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
