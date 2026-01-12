@@ -12,14 +12,9 @@ public interface IRepository
     Task<List<User>> GetAllAsync();
 }
 
-public class Repository : IRepository
+public class Repository(AppDbContext context) : IRepository
 {
-    private readonly AppDbContext _context;
-
-    public Repository(AppDbContext context)
-    {
-        _context = context;
-    }
+    private readonly AppDbContext _context = context;
 
     public async Task AddAsync(User user)
     {

@@ -15,16 +15,10 @@ public interface IUsersService
     Task<List<UserDto>> FetchUsersAsync();
 }
 
-public class UsersService : IUsersService
+public class UsersService(IRepository repository, IDistributedCache cache) : IUsersService
 {
-    private readonly IRepository _repository;
-    private readonly IDistributedCache _cache;
-
-    public UsersService(IRepository repository, IDistributedCache cache)
-    {
-        _repository = repository;
-        _cache = cache;
-    }
+    private readonly IRepository _repository = repository;
+    private readonly IDistributedCache _cache = cache;
 
     public async Task CreateUserAsync(UserDto userDto)
     {

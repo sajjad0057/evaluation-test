@@ -1,22 +1,15 @@
 ﻿using ManageUser.Infrastructure.DTOs;
 using ManageUser.Infrastructure.Services;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ManageUser.Api.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class UsersController : ControllerBase
+public class UsersController(IUsersService userService, ILogger<UsersController> logger) : ControllerBase
 {
-    private readonly IUsersService _userService;
-    private readonly ILogger<UsersController> _logger;
-
-    public UsersController(IUsersService userService, ILogger<UsersController> logger)
-    {
-        _userService = userService;
-        _logger = logger;
-    }
+    private readonly IUsersService _userService = userService;
+    private readonly ILogger<UsersController> _logger = logger;
 
     [HttpPost("create-user")]
     public async Task<IActionResult> CreateUser(UserDto userDto)
