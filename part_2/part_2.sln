@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35707.178 d17.12
+VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManageUser.Api", "ManageUser.Api\ManageUser.Api.csproj", "{305A872E-AB93-4B87-82F8-0620B426A0E9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManageUser.Infrastructure", "ManageUser.Infrastructure\ManageUser.Infrastructure.csproj", "{1405CC11-3D5E-42A3-8B9A-FD40127E5D53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemHealthMonitor", "SystemHealthMonitor\SystemHealthMonitor.csproj", "{DC34B214-6DA9-4680-96B7-16F64BBA8922}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{1405CC11-3D5E-42A3-8B9A-FD40127E5D53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1405CC11-3D5E-42A3-8B9A-FD40127E5D53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1405CC11-3D5E-42A3-8B9A-FD40127E5D53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC34B214-6DA9-4680-96B7-16F64BBA8922}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC34B214-6DA9-4680-96B7-16F64BBA8922}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC34B214-6DA9-4680-96B7-16F64BBA8922}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC34B214-6DA9-4680-96B7-16F64BBA8922}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
